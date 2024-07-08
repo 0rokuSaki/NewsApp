@@ -1,25 +1,39 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace NewsApp
+namespace NewsApp;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("FontAwesome.otf", "FontAwesome");
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+		builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
-        }
+        return builder.Build();
+    }
+
+    public static MauiAppBuilder RegisterAppTypes(this MauiAppBuilder mauiAppBuilder)
+    {
+
+        // ViewModels
+        mauiAppBuilder.Services.AddTransient<ViewModels.HeadlinesViewModel>();
+
+        // Views
+        mauiAppBuilder.Services.AddTransient<Views.AboutView>();
+        mauiAppBuilder.Services.AddTransient<Views.ArticleView>();
+        mauiAppBuilder.Services.AddTransient<Views.HeadlinesView>();
+
+        return mauiAppBuilder;
     }
 }

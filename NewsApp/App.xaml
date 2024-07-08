@@ -10,5 +10,28 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+        <FontImage x:Key="HomeIcon"
+                   FontFamily="FontAwesome"
+                   Glyph="&#xf015;"
+                   Size="22"
+                   Color="Black" />
+        <FontImage x:Key="HeadlinesIcon"
+                   FontFamily="FontAwesome"
+                   Glyph="&#xf70e;"
+                   Size="22" />
+        <FontImage x:Key="NewsIcon"
+                   FontFamily=" FontAwesome"
+                   Glyph="&#xf1ea;"
+                   Size="22" />
+        <FontImage x:Key="SettingsIcon"
+                   FontFamily="FontAwesome"
+                   Glyph="&#xf013;"
+                   Size="22"
+                   Color="Black" />
+        <FontImage x:Key="AboutIcon"
+                   FontFamily="FontAwesome"
+                   Glyph="&#xf05a;"
+                   Size="22"
+                   Color="Black" />
     </Application.Resources>
 </Application>
